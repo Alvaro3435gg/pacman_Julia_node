@@ -5,12 +5,31 @@ using CairoMakie
     type::String = "Ghost"
 end
 
+matrix = [
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+    0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 0;
+    0 1 0 1 0 0 0 1 1 1 0 1 0 1 0 1 0;
+    0 1 1 1 0 1 0 0 0 0 0 1 0 1 1 1 0;
+    0 1 0 0 0 1 1 1 1 1 1 1 0 0 0 1 0;
+    0 1 0 1 0 1 0 0 0 0 0 1 1 1 0 1 0;
+    0 1 1 1 0 1 0 1 1 1 0 1 0 1 0 1 0;
+    0 1 0 1 0 1 0 1 1 1 0 1 0 1 0 1 0;
+    0 1 0 1 1 1 0 0 1 0 0 1 0 1 1 1 0;
+    0 1 0 0 0 1 1 1 1 1 1 1 0 0 0 1 0;
+    0 1 1 1 0 1 0 0 0 0 0 1 0 1 1 1 0;
+    0 1 0 1 0 1 0 1 1 1 0 0 0 1 0 1 0;
+    0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 0;
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+]
+
 function agent_step!(agent, model)
     randomwalk!(agent, model)
+    #Necesitará cambiar los movimientos
 end
 
 function initialize_model()
-    space = GridSpace((5,5); periodic = false, metric = :manhattan)
+    dims = size(matrix)
+    space = GridSpace(dims; periodic = false, metric = :manhattan)
     model = StandardABM(Ghost, space; agent_step!)
     return model
 end
