@@ -8,9 +8,9 @@ route("/run") do
     for ghost in allagents(model)
         push!(agents, ghost)
     end
-
     json(Dict(:msg => "Adios", "agents" => agents))
 end
+
 
 Genie.config.run_as_server = true
 Genie.config.cors_headers["Access-Control-Allow-Origin"] = "*"
