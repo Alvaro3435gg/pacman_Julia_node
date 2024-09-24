@@ -56,7 +56,7 @@ function initialize_model()
     global pathfinder = AStar(space, walkmap = bitmatrix, diagonal_movement = false)
 
     model = StandardABM(Ghost, space; agent_step!)
-    add_agent!(Ghost, pos = (8, 6), model)
+    add_agent!(Ghost, pos = (8, 6), model) #8 , 6 originally
 
     if matrix[8, 6] == 1
         route = plan_route!(model[1], target, pathfinder)

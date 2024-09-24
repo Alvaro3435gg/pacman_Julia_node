@@ -4,6 +4,7 @@ using UUIDs
 
 route("/run") do
     run!(model, 1)
+    sleep(1)
     agents = []
     for ghost in allagents(model)
         push!(agents, ghost)
